@@ -14,8 +14,8 @@ const Home = () => {
     fetchData();
   }, []);
   return (
-    <div>
-      <h1>Products</h1>
+    <div className="home__wrapper">
+      <h1 className="home__title">Products</h1>
       <ul className="home__product-list">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
