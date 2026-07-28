@@ -1,5 +1,5 @@
 .card:hover {
-  transform: translateY(-5px);
+  box-shadow: inset 0px 0px 11px 2px rgb(61 129 185 / 92%);
 }
 
 .card img {
