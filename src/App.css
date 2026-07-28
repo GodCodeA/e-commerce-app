@@ -1,11 +1,56 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  background: #475569;
+}
+
 .nav {
   display: flex;
-  justify-content: space-between;
-  padding: 16px 24px;
-  background: gray;
+  gap: 16px;
 }
 
 .nav a {
   color: white;
   text-decoration: none;
+}
+
+.header-actions {
+  position: relative;
+}
+
+.more-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  background: #475569;
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  min-width: 180px;
+}
+
+.more-btn {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  font-size: 16px;
 }
