@@ -27,9 +27,9 @@
   top: calc(100% + 10px);
   background: #475569;
   border: 3px solid rgba(255, 255, 255, 0.45);
-  border-radius: 16px;
+  border-radius: 7px;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
-  min-width: 180px;
+  width: 120px;
 }
 
 .more-btn {
@@ -44,7 +44,7 @@
 
 .theme-toggle {
   width: 100%;
-  padding: 10px 16px;
+  padding: 6px 0;
   border: none;
   cursor: pointer;
   background: transparent;
@@ -53,4 +53,5 @@
     background 0.2s ease,
     color 0.2s ease;
   font-size: 16px;
+  white-space: nowrap;
 }

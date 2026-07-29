@@ -60,9 +60,12 @@ body.dark {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   background: rgba(255, 255, 255, 0.92);
+  min-height: 275px;
   border-radius: 12px;
-  border: 1px solid gray;
+  border: 2px solid gray;
   padding: 16px;
   text-align: center;
   transition:
@@ -74,7 +77,6 @@ body.dark {
 .app.dark .card {
   background: rgba(30, 41, 50, 0.92);
 }
-
 
 p {
   margin: 0;
