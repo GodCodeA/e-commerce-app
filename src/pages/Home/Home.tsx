@@ -26,12 +26,13 @@ const Home = ({ searchQuery }: HomeProps) => {
     };
     fetchData();
   }, []);
+
   return (
     <div className="home__wrapper">
       <h1 className="home__title">Products</h1>
       <ul className="home__product-list">
         {filteredProducts.map((product) => (
-          <ProductCard key={product.id} product={product}/>
+          <ProductCard key={product.id} product={product} />
         ))}
       </ul>
     </div>

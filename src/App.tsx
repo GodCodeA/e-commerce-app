@@ -9,12 +9,24 @@ function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [menuOpen, setMenuOpen] = useState(false);
   const headerActionsRef = useRef<HTMLDivElement | null>(null);
+
+  const [inputValue, setInputValue] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const debounceRef = useRef<number | null>(null);
 
   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("search:", searchQuery);
+    setSearchQuery(inputValue.trim());
+    console.log("search submit:", inputValue.trim());
+  };
+
+  const clearSearch = () => {
+    setInputValue("");
+    setSearchQuery("");
+    inputRef.current?.focus();
   };
 
   const toggleTheme = () => {
@@ -43,6 +55,38 @@ function App() {
       document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (debounceRef.current) {
+      window.clearTimeout(debounceRef.current);
+    }
+
+    debounceRef.current = window.setTimeout(() => {
+      setSearchQuery(inputValue.trim());
+    }, 500);
+
+    return () => {
+      if (debounceRef.current) window.clearTimeout(debounceRef.current);
+    };
+  }, [inputValue]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "/" && document.activeElement !== inputRef.current) {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+
+      if (e.key === "Escape") {
+        if (document.activeElement === inputRef.current && inputValue !== "") {
+          clearSearch();
+        }
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [inputValue]);
+
   return (
     <div className={`app ${theme}`}>
       <header className="header">
@@ -51,14 +95,40 @@ function App() {
           <Link to="/cart">Cart</Link>
         </nav>
 
-        <form className="search-form" onSubmit={handleSearchSubmit}>
-          <input
-            type="search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search"
-          />
-          <button type="submit" className="search-btn">
+        <form
+          className="search-form"
+          onSubmit={handleSearchSubmit}
+          role="search"
+          aria-label="Find the catalog"
+        >
+          <div className="search-wrap">
+            <span className="search-icon" aria-hidden="true">
+              🔍
+            </span>
+
+            <input
+              id="site-search"
+              ref={inputRef}
+              type="search"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="Find product..."
+              aria-label="Search the catalog"
+              className="search-input"
+            />
+
+            <button
+              type="button"
+              onClick={clearSearch}
+              className="search-clear"
+              aria-label="Clear search"
+              hidden={inputValue === ""}
+            >
+              ✕
+            </button>
+          </div>
+
+          <button type="submit" className="search-btn" aria-label="Search">
             Search
           </button>
         </form>
@@ -68,6 +138,8 @@ function App() {
             className="more-btn"
             onClick={() => setMenuOpen((prev) => !prev)}
             type="button"
+            aria-expanded={menuOpen}
+            aria-haspopup="menu"
           >
             More options
           </button>
@@ -78,6 +150,7 @@ function App() {
                 className="theme-toggle"
                 onClick={toggleTheme}
                 type="button"
+                role="menuitem"
               >
                 Change theme
               </button>
@@ -87,7 +160,7 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Home searchQuery={searchQuery}/>} />
+          <Route path="/" element={<Home searchQuery={searchQuery} />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
