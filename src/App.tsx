@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type FormEvent } from "react";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import Product from "./pages/Product/Product";
@@ -9,6 +9,13 @@ function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [menuOpen, setMenuOpen] = useState(false);
   const headerActionsRef = useRef<HTMLDivElement | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log("search:", searchQuery);
+  };
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -44,6 +51,18 @@ function App() {
           <Link to="/cart">Cart</Link>
         </nav>
 
+        <form className="search-form" onSubmit={handleSearchSubmit}>
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search"
+          />
+          <button type="submit" className="search-btn">
+            Search
+          </button>
+        </form>
+
         <div className="header-actions" ref={headerActionsRef}>
           <button
             className="more-btn"
@@ -68,7 +87,7 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home searchQuery={searchQuery}/>} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
