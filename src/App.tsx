@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { useState, useEffect, useRef, type FormEvent } from "react";
+import { useState, useEffect, useRef } from "react";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import Product from "./pages/Product/Product";
@@ -16,7 +16,7 @@ function App() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const debounceRef = useRef<number | null>(null);
 
-  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSearchSubmit = (e: any) => {
     e.preventDefault();
 
     setSearchQuery(inputValue.trim());
