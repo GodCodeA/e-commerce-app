@@ -1,6 +1,6 @@
 import "./index.css";
 import { Link } from "react-router-dom";
-import type { ProductCardProps } from "../types/Types";
+import type { ProductCardProps } from "../../types/Types";
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
