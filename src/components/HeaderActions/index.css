@@ -1,0 +1,38 @@
+.header-actions {
+  position: relative;
+}
+
+.header-actions__more-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  background: #475569;
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  border-radius: 7px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  width: 120px;
+}
+
+.header-actions__more-btn {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.header-actions__theme-toggle {
+  width: 100%;
+  padding: 6px 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+  font-size: 16px;
+  white-space: nowrap;
+}

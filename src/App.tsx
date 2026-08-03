@@ -1,79 +1,49 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import Product from "./pages/Product/Product";
+import SearchForm from "./components/SearchForm/SearchForm";
+import HeaderActions from "./components/HeaderActions/HeaderActions";
 import "./App.css";
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const headerActionsRef = useRef<HTMLDivElement | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
 
   useEffect(() => {
     document.body.className = theme;
   }, [theme]);
 
-  useEffect(() => {
-    const handleClickOutside = (event: Event) => {
-      if (
-        menuOpen &&
-        headerActionsRef.current &&
-        !headerActionsRef.current.contains(event.target as Node)
-      ) {
-        setMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [menuOpen]);
   return (
     <div className={`app ${theme}`}>
       <header className="header">
-        <nav className="nav">
-          <Link to="/">Home</Link>
-          <Link to="/cart">Cart</Link>
-        </nav>
+        <div className="container">
+          <div className="header-wrapper">
+            <nav className="nav">
+              <Link to="/">Home</Link>
+              <Link to="/cart">Cart</Link>
+            </nav>
 
-        <div className="header-actions" ref={headerActionsRef}>
-          <button
-            className="more-btn"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            type="button"
-          >
-            More options
-          </button>
-
-          {menuOpen && (
-            <div className="more-menu">
-              <button
-                className="theme-toggle"
-                onClick={toggleTheme}
-                type="button"
-              >
-                Change theme
-              </button>
-            </div>
-          )}
+            <SearchForm onSearch={setSearchQuery} />
+            <HeaderActions toggleTheme={toggleTheme} />
+          </div>
         </div>
       </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/:id" element={<Product />} />
-        </Routes>
-      </main>
-      <footer></footer>
+      <div className="container">
+        <main>
+          <Routes>
+            <Route path="/" element={<Home searchQuery={searchQuery} />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<Product />} />
+          </Routes>
+        </main>
+      </div>
+      <footer>
+        <div className="container"></div>
+      </footer>
     </div>
   );
 }
