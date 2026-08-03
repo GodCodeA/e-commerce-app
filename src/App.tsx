@@ -20,22 +20,30 @@ function App() {
   return (
     <div className={`app ${theme}`}>
       <header className="header">
-        <nav className="nav">
-          <Link to="/">Home</Link>
-          <Link to="/cart">Cart</Link>
-        </nav>
+        <div className="container">
+          <div className="header-wrapper">
+            <nav className="nav">
+              <Link to="/">Home</Link>
+              <Link to="/cart">Cart</Link>
+            </nav>
 
-        <SearchForm onSearch={setSearchQuery} />
-        <HeaderActions toggleTheme={toggleTheme} />
+            <SearchForm onSearch={setSearchQuery} />
+            <HeaderActions toggleTheme={toggleTheme} />
+          </div>
+        </div>
       </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home searchQuery={searchQuery} />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/:id" element={<Product />} />
-        </Routes>
-      </main>
-      <footer></footer>
+      <div className="container">
+        <main>
+          <Routes>
+            <Route path="/" element={<Home searchQuery={searchQuery} />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<Product />} />
+          </Routes>
+        </main>
+      </div>
+      <footer>
+        <div className="container"></div>
+      </footer>
     </div>
   );
 }

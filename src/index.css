@@ -15,23 +15,36 @@ body {
 }
 
 body.light {
-  background: radial-gradient(
-    circle at top,
-    #eef6ff 0%,
-    #f8fafc 50%,
-    #f5f3ef 100%
-  );
-  color: #111;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M20 24H44L42 48H22L20 24Z' fill='%23475569'/><path d='M26 24C26 19 29 16 32 16C35 16 38 19 38 24' stroke='%23475569' stroke-width='4' fill='none' stroke-linecap='round'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g transform='translate(32 32) rotate(20) translate(-32 -32)'><path d='M20 24H44L42 48H22L20 24Z' fill='%23475569'/><path d='M26 24C26 19 29 16 32 16C35 16 38 19 38 24' stroke='%23475569' stroke-width='4' fill='none' stroke-linecap='round'/></g></svg>");
+  background-repeat: no-repeat, repeat, repeat;
+  background-size:
+    cover,
+    50px 60px,
+    50px 60px;
+  background-position:
+    center,
+    7px -4px,
+    32px 28px;
 }
 
 body.dark {
-  background: radial-gradient(
-    circle at top,
-    #111115 0%,
-    #181c2a 60%,
-    #111115 100%
-  );
-  color: #f5f5f7;
+  background-color: #111115;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M20%2024H44L42%2048H22L20%2024Z' fill='%23e2e8f0'/><path d='M26%2024C26%2019%2029%2016%2032%2016C35%2016%2038%2019%2038%2024' stroke='%23e2e8f0' stroke-width='4' fill='none' stroke-linecap='round'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path transform='translate(32%2032)%20rotate(25)%20translate(-32%20-32)' d='M20%2024H44L42%2048H22L20%2024Z' fill='%23e2e8f0'/><path transform='translate(32%2032)%20rotate(25)%20translate(-32%20-32)' d='M26%2024C26%2019%2029%2016%2032%2016C35%2016%2038%2019%2038%2024' stroke='%23e2e8f0' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat, repeat, repeat;
+  background-size:
+    cover,
+    50px 60px,
+    50px 60px;
+  background-position:
+    center,
+    7px -4px,
+    32px 28px;
 }
 
 #root {
@@ -41,20 +54,16 @@ body.dark {
 
 .app {
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
   transition:
     background 0.3s ease,
     color 0.3s ease;
 }
 
-.app.light {
-  background: rgba(255, 255, 255, 0.95);
-}
-
-.app.dark {
-  background: rgba(15, 23, 42, 0.95);
-  color: #f5f5f7;
+.container {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .card {
