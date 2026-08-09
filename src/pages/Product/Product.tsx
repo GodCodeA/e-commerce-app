@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getProductsById } from "../../api/products";
 import { useCart } from "../../hooks/useCart";
 import type { ProductProps } from "../../types/Types";
-import { useNavigate } from "react-router-dom";
-import './index.css'
+import "./index.css";
 
 const Product = () => {
   const { id } = useParams();
@@ -40,36 +39,52 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p className="product__status">Загрузка...</p>;
+
   if (error)
     return (
-      <div>
-        <p>Product not found</p>
-        <button onClick={() => navigate("/")}>Go Home</button>
+      <div className="product__status-block">
+        <p className="product__status">Товар не найден.</p>
+        <button className="product__action-btn" onClick={() => navigate("/")}>
+          На главную
+        </button>
       </div>
     );
+
   if (!product) return null;
+
   return (
-    <div className="product__page">
-      <button onClick={() => navigate(-1)}>Back</button>
+    <section className="product__page">
+      <div className="product__header">
+        <button className="product__back-btn" onClick={() => navigate(-1)}>
+          ← Назад
+        </button>
+      </div>
 
       <div className="product__container">
-        <img src={product.thumbnail} width={200} />
+        <div className="product__image-card">
+          <img
+            className="product__image"
+            src={product.thumbnail}
+            alt={product.title}
+          />
+        </div>
 
-        <div>
-          <h1>{product.title}</h1>
+        <div className="product__details">
+          <h1 className="product__title">{product.title}</h1>
           <p className="product__price">{product.price}$</p>
-          <p>{product.description}</p>
+          <p className="product__description">{product.description}</p>
 
           <button
+            className="product__action-btn"
             onClick={() => addToCart(product)}
             disabled={loading || error}
           >
-            Add to cart
+            Добавить в корзину
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -54,7 +54,6 @@ body.dark {
 
 .app {
   margin: 0 auto;
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
   transition:
     background 0.3s ease,
     color 0.3s ease;
@@ -69,10 +68,10 @@ body.dark {
 .card {
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.92);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   min-height: 275px;
   border-radius: 12px;
-  border: 2px solid gray;
+  border: 2px solid rgb(174 163 163 / 30%);
   padding: 16px;
   text-align: center;
   transition:
