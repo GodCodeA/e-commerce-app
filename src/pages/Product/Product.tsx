@@ -39,14 +39,14 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
-  if (loading) return <p className="product__status">Загрузка...</p>;
+  if (loading) return <p className="product__status">Loading...</p>;
 
   if (error)
     return (
       <div className="product__status-block">
-        <p className="product__status">Товар не найден.</p>
+        <p className="product__status">Product not found.</p>
         <button className="product__action-btn" onClick={() => navigate("/")}>
-          На главную
+          Home
         </button>
       </div>
     );
@@ -57,7 +57,7 @@ const Product = () => {
     <section className="product__page">
       <div className="product__header">
         <button className="product__back-btn" onClick={() => navigate(-1)}>
-          ← Назад
+          ← Back
         </button>
       </div>
 
@@ -80,7 +80,7 @@ const Product = () => {
             onClick={() => addToCart(product)}
             disabled={loading || error}
           >
-            Добавить в корзину
+            Add to cart
           </button>
         </div>
       </div>

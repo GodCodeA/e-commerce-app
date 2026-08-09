@@ -34,18 +34,18 @@ const Home = ({ searchQuery }: HomeProps) => {
           <p className="home__eyebrow">Shop the latest</p>
           <h1 className="home__title">Products</h1>
           <p className="home__subtitle">
-            Здесь отображаются все доступные товары. Используйте поиск, чтобы
-            быстро найти нужный продукт.
+            All available products are displayed here. Use the search to quickly
+            find the item you need.
           </p>
           <p className="home__count">
-            Найдено {filteredProducts.length} из {products.length} товаров
+            Showing {filteredProducts.length} of {products.length} products
           </p>
         </div>
       </div>
 
       {filteredProducts.length === 0 ? (
         <p className="home__empty">
-          Товары не найдены. Попробуйте изменить запрос или очистить поиск.
+          No products found. Try changing the query or clearing the search.
         </p>
       ) : (
         <ul className="home__product-list">
