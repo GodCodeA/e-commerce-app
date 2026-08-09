@@ -68,10 +68,10 @@ body.dark {
 .card {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
   min-height: 275px;
   border-radius: 12px;
-  border: 2px solid rgb(174 163 163 / 30%);
+  border: 1px solid #e2e8f0;
   padding: 16px;
   text-align: center;
   transition:
@@ -81,6 +81,14 @@ body.dark {
 }
 
 .app.dark .card {
+  background: rgba(30, 41, 50, 0.92);
+}
+
+.app.dark .home {
+  background: rgba(30, 41, 50, 0.92);
+}
+
+.app.dark .home__empty {
   background: rgba(30, 41, 50, 0.92);
 }
 
