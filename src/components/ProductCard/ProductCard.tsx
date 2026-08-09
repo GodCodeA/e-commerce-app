@@ -7,8 +7,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <li>
       <div className="card">
         <Link to={`/product/${product.id}`} className="card_link">
-          <img src={product.thumbnail} alt={product.title}></img>
-          <div className="card_text-wrapper">
+          <img src={product.thumbnail} alt={product.title} className="card__img"></img>
+          <div className="card__text-wrapper">
             <h3>{product.title}</h3>
             <p>{product.price}$</p>
           </div>

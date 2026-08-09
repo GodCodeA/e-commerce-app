@@ -1,17 +1,17 @@
-.search-form {
+.search__form {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.search-wrap {
+.search__wrap {
   position: relative;
   display: flex;
   align-items: center;
   min-width: 260px;
 }
 
-.search-icon {
+.search__icon {
   position: absolute;
   left: 14px;
   font-size: 16px;
@@ -19,7 +19,7 @@
   pointer-events: none;
 }
 
-.search-input {
+.search__input {
   padding: 10px 42px 10px 40px;
   width: 100%;
   border-radius: 999px;
@@ -32,29 +32,29 @@
     box-shadow 0.2s ease;
 }
 
-.search-input::placeholder {
+.search__input::placeholder {
   color: #64748b;
 }
 
-.search-input:focus {
+.search__input:focus {
   outline: none;
   border-color: #60a5fa;
   box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.18);
 }
 
-.search-input::-webkit-search-decoration,
-.search-input::-webkit-search-cancel-button,
-.search-input::-webkit-search-results-button,
-.search-input::-webkit-search-results-decoration {
+.search__input::-webkit-search-decoration,
+.search__input::-webkit-search-cancel-button,
+.search__input::-webkit-search-results-button,
+.search__input::-webkit-search-results-decoration {
   display: none;
 }
 
-.search-input::-ms-clear,
-.search-input::-ms-expand {
+.search__input::-ms-clear,
+.search__input::-ms-expand {
   display: none;
 }
 
-.search-btn {
+.search__btn {
   padding: 10px 16px;
   border-radius: 999px;
   border: none;
@@ -67,15 +67,15 @@
     transform 0.1s ease;
 }
 
-.search-btn:hover {
+.search__btn:hover {
   background: #2563eb;
 }
 
-.search-btn:active {
+.search__btn:active {
   transform: scale(0.98);
 }
 
-.search-clear {
+.search__clear {
   position: absolute;
   left: auto;
   right: 5px;
@@ -88,14 +88,14 @@
   cursor: pointer;
 }
 
-.search-clear:hover,
-.search-clear:focus {
+.search__clear:hover,
+.search__clear:focus {
   background-color: rgba(71, 85, 105, 0.3);
   outline: none;
 }
 
 @media (max-width: 640px) {
-  .search-form {
+  .search__form {
     flex-direction: column;
     align-items: stretch;
     gap: 10px;
@@ -104,17 +104,17 @@
     margin-top: 10px;
   }
 
-  .search-wrap {
+  .search__wrap {
     width: 100%;
     min-width: 0;
   }
 
-  .search-input {
+  .search__input {
     width: 100%;
     padding: 10px 42px 10px 40px;
   }
 
-  .search-btn {
+  .search__btn {
     width: 100%;
     padding: 10px 14px;
   }

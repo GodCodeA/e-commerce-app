@@ -48,40 +48,42 @@ export default function SearchForm({ onSearch }: Props) {
   };
 
   return (
-    <form
-      className="search-form"
-      onSubmit={submit}
-      role="search"
-      aria-label="Find the catalog"
-    >
-      <div className="search-wrap">
-        <span className="search-icon" aria-hidden>
-          🔍
-        </span>
-        <input
-          id="site-search"
-          ref={inputRef}
-          type="search"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          placeholder="Find product..."
-          aria-label="Search the catalog"
-          className="search-input"
-        />
-        <button
-          type="button"
-          onClick={clearSearch}
-          className="search-clear"
-          aria-label="Clear search"
-          hidden={value === ""}
-        >
-          ✕
-        </button>
-      </div>
+    <section className="search">
+      <form
+        className="search__form"
+        onSubmit={submit}
+        role="search"
+        aria-label="Find the catalog"
+      >
+        <div className="search__wrap">
+          <span className="search__icon" aria-hidden>
+            🔍
+          </span>
+          <input
+            id="site-search"
+            ref={inputRef}
+            type="search"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder="Find product..."
+            aria-label="Search the catalog"
+            className="search__input"
+          />
+          <button
+            type="button"
+            onClick={clearSearch}
+            className="search__clear"
+            aria-label="Clear search"
+            hidden={value === ""}
+          >
+            ✕
+          </button>
+        </div>
 
-      <button type="submit" className="search-btn" aria-label="Search">
-        Search
-      </button>
-    </form>
+        <button type="submit" className="search__btn" aria-label="Search">
+          Search
+        </button>
+      </form>
+    </section>
   );
 }

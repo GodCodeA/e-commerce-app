@@ -1,11 +1,12 @@
 import { useCart } from "../../hooks/useCart";
-import './index.css'
+import "./index.css";
 
 const Cart = () => {
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
     useCart();
 
-  if (cart.length === 0) return <p>Cart is empty</p>;
+  if (cart.length === 0)
+    return <p className="cart__empty">Ваша корзина пока пуста.</p>;
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -13,26 +14,47 @@ const Cart = () => {
   );
 
   return (
-    <>
-      <div>
-        <h1>Cart</h1>
+    <section className="cart">
+      <div className="cart__wrapper">
+        <h1 className="cart__title">Корзина</h1>
+
         {cart.map((item) => (
           <div key={item.id} className="cart__item">
-            <h3>{item.title}</h3>
-            <p>Price: {item.price}$</p>
+            <div className="cart__item-info">
+              <h3>{item.title}</h3>
+              <p className="cart__item-price">Price: {item.price}$</p>
+            </div>
 
-            <button onClick={() => decreaseQuantity(item.id)}>-</button>
-            <span>{item.quantity}</span>
-            <button onClick={() => increaseQuantity(item.id)}>+</button>
+            <div className="cart__item-actions">
+              <div className="cart__quantity">
+                <button
+                  className="cart__quantity-button"
+                  onClick={() => decreaseQuantity(item.id)}
+                >
+                  -
+                </button>
+                <span className="cart__quantity-value">{item.quantity}</span>
+                <button
+                  className="cart__quantity-button"
+                  onClick={() => increaseQuantity(item.id)}
+                >
+                  +
+                </button>
+              </div>
 
-            <button onClick={() => removeFromCart(item.id)}>
-              Удалить товар
-            </button>
+              <button
+                className="cart__remove-btn"
+                onClick={() => removeFromCart(item.id)}
+              >
+                Удалить товар
+              </button>
+            </div>
           </div>
         ))}
+
+        <h2 className="cart__total">Total price: {totalPrice}$</h2>
       </div>
-      <h2>Total price: {totalPrice}$</h2>
-    </>
+    </section>
   );
 };
 
