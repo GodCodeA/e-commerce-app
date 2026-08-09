@@ -28,23 +28,24 @@ const Home = ({ searchQuery }: HomeProps) => {
   }, []);
 
   return (
-    <div className="home__wrapper">
-      <section className="home__hero">
+    <section className="home">
+      <div className="home__hero">
         <div>
           <p className="home__eyebrow">Shop the latest</p>
           <h1 className="home__title">Products</h1>
           <p className="home__subtitle">
-            Здесь отображаются все доступные товары. Используйте поиск, чтобы быстро найти нужный продукт.
+            All available products are displayed here. Use the search to quickly
+            find the item you need.
           </p>
           <p className="home__count">
-            Найдено {filteredProducts.length} из {products.length} товаров
+            Showing {filteredProducts.length} of {products.length} products
           </p>
         </div>
-      </section>
+      </div>
 
       {filteredProducts.length === 0 ? (
         <p className="home__empty">
-          Товары не найдены. Попробуйте изменить запрос или очистить поиск.
+          No products found. Try changing the query or clearing the search.
         </p>
       ) : (
         <ul className="home__product-list">
@@ -53,7 +54,7 @@ const Home = ({ searchQuery }: HomeProps) => {
           ))}
         </ul>
       )}
-    </div>
+    </section>
   );
 };
 

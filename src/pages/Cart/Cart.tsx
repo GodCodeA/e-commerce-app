@@ -6,7 +6,7 @@ const Cart = () => {
     useCart();
 
   if (cart.length === 0)
-    return <p className="cart__empty">Ваша корзина пока пуста.</p>;
+    return <p className="cart__empty">Your cart is currently empty.</p>;
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -16,7 +16,7 @@ const Cart = () => {
   return (
     <section className="cart">
       <div className="cart__wrapper">
-        <h1 className="cart__title">Корзина</h1>
+        <h1 className="cart__title">Cart</h1>
 
         {cart.map((item) => (
           <div key={item.id} className="cart__item">
@@ -46,7 +46,7 @@ const Cart = () => {
                 className="cart__remove-btn"
                 onClick={() => removeFromCart(item.id)}
               >
-                Удалить товар
+                Remove item
               </button>
             </div>
           </div>
