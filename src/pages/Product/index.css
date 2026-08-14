@@ -123,13 +123,13 @@
   font-size: 1.05rem;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 768px) {
   .product__container {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .product__page {
     padding: 24px 14px 34px;
   }

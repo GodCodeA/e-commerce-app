@@ -8,13 +8,17 @@ import HeaderActions from "./components/HeaderActions/HeaderActions";
 import "./App.css";
 
 function App() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
+
   const [searchQuery, setSearchQuery] = useState("");
 
-  const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   useEffect(() => {
     document.body.className = theme;
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   return (

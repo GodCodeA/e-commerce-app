@@ -48,7 +48,7 @@ export default function SearchForm({ onSearch }: Props) {
   };
 
   return (
-    <section className="search">
+    <div className="search">
       <form
         className="search__form"
         onSubmit={submit}
@@ -84,6 +84,6 @@ export default function SearchForm({ onSearch }: Props) {
           Search
         </button>
       </form>
-    </section>
+    </div>
   );
 }

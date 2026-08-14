@@ -66,14 +66,14 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .home__hero {
     flex-direction: column;
     align-items: stretch;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .home__wrapper {
     padding: 20px 14px 38px;
   }
