@@ -4,7 +4,7 @@ A small e-commerce storefront built with React, TypeScript, and Vite. The app lo
 
 ## Live Demo
 
-- Netlify: https://react-simple-shop-by-bakytnur.netlify.app
+- Cloudflare: https://e-commerce-app-c1m.pages.dev
 
 ## Features
 
