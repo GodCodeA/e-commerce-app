@@ -57,7 +57,7 @@ const Product = () => {
     <section className="product__page">
       <div className="product__header">
         <button className="product__back-btn" onClick={() => navigate(-1)}>
-          ← Back
+          Back
         </button>
       </div>
 

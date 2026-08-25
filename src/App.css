@@ -24,18 +24,38 @@
 
 .nav {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 16px;
 
   @media (max-width: 768px) {
     order: 1;
-    /* justify-content: flex-start;
-    gap: 12px; */
   }
 }
 
 .nav a {
   color: white;
   text-decoration: none;
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background-color: rgb(53 165 224 / 70%);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
 }
 
 .header-actions {

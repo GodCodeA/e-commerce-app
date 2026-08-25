@@ -1,11 +1,13 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { ShoppingCart } from "lucide-react";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import Product from "./pages/Product/Product";
 import SearchForm from "./components/SearchForm/SearchForm";
 import HeaderActions from "./components/HeaderActions/HeaderActions";
 import "./App.css";
+import { useCart } from "./hooks/useCart";
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -15,6 +17,10 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+
+  const { cart } = useCart();
+
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
   useEffect(() => {
     document.body.className = theme;
@@ -28,7 +34,12 @@ function App() {
           <div className="header-wrapper">
             <nav className="nav">
               <Link to="/">Home</Link>
-              <Link to="/cart">Cart</Link>
+              <Link to="/cart" className="cart-link">
+                <ShoppingCart />
+                {totalItems > 0 && (
+                  <span className="cart-count">{totalItems}</span>
+                )}
+              </Link>
             </nav>
 
             <SearchForm onSearch={setSearchQuery} />
