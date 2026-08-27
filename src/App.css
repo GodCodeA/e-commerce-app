@@ -64,7 +64,6 @@
   background-color: var(--header-cart-count-background-color);
   color: var(--header-text-link-color);
   font-size: 10px;
-  font-weight: 600;
 }
 
 .cart-link:hover svg {

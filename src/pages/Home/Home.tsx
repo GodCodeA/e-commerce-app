@@ -30,15 +30,12 @@ const Home = ({ searchQuery }: HomeProps) => {
   return (
     <section className="home">
       <div className="home__hero">
-        <div>
+        <div className="home__wrapper">
           <p className="home__eyebrow">Shop the latest</p>
           <h1 className="home__title">Products</h1>
           <p className="home__subtitle">
             All available products are displayed here. Use the search to quickly
             find the item you need.
-          </p>
-          <p className="home__count">
-            Showing {filteredProducts.length} of {products.length} products
           </p>
         </div>
       </div>
@@ -48,11 +45,14 @@ const Home = ({ searchQuery }: HomeProps) => {
           No products found. Try changing the query or clearing the search.
         </p>
       ) : (
-        <ul className="home__product-list">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </ul>
+        <>
+          <div className="home__product-horizontal-border"></div>
+          <ul className="home__product-list">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </ul>
+        </>
       )}
     </section>
   );

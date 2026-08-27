@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
   background: #f5f3ef;
   min-height: 100vh;
   margin: 0;
@@ -63,21 +63,6 @@ body.dark {
   width: min(100%, 1200px);
   margin: 0 auto;
   padding: 0 24px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-  min-height: 275px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  padding: 16px;
-  text-align: center;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
 .app.dark .card {

@@ -33,7 +33,9 @@ function App() {
         <div className="container">
           <div className="header-wrapper">
             <nav className="nav">
-              <Link to="/" className="home-link">Home</Link>
+              <Link to="/" className="home-link">
+                Home
+              </Link>
               <Link to="/cart" className="cart-link">
                 <ShoppingCart />
                 {totalItems > 0 && (
@@ -47,15 +49,13 @@ function App() {
           </div>
         </div>
       </header>
-      <div className="container">
-        <main>
-          <Routes>
-            <Route path="/" element={<Home searchQuery={searchQuery} />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/product/:id" element={<Product />} />
-          </Routes>
-        </main>
-      </div>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home searchQuery={searchQuery} />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:id" element={<Product />} />
+        </Routes>
+      </main>
       <footer>
         <div className="container"></div>
       </footer>
