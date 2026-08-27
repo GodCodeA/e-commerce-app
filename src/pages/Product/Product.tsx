@@ -45,7 +45,7 @@ const Product = () => {
     return (
       <div className="product__status-block">
         <p className="product__status">Product not found.</p>
-        <button className="product__action-btn" onClick={() => navigate("/")}>
+        <button className="product__action-btn btn" onClick={() => navigate("/")}>
           Home
         </button>
       </div>
@@ -55,12 +55,6 @@ const Product = () => {
 
   return (
     <section className="product__page">
-      <div className="product__header">
-        <button className="product__back-btn" onClick={() => navigate(-1)}>
-          Back
-        </button>
-      </div>
-
       <div className="product__container">
         <div className="product__image-card">
           <img
@@ -76,7 +70,7 @@ const Product = () => {
           <p className="product__description">{product.description}</p>
 
           <button
-            className="product__action-btn"
+            className="product__action-btn btn"
             onClick={() => addToCart(product)}
             disabled={loading || error}
           >

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import './index.css'
+import "./index.css";
 
 type Props = {
   toggleTheme: () => void;

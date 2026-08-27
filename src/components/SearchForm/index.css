@@ -54,21 +54,6 @@
   display: none;
 }
 
-.search__btn {
-  padding: 10px 16px;
-  border-radius: 999px;
-  border: none;
-  background: #60a5fa;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.search__btn:hover {
-  background: #2563eb;
-}
-
 .search__clear {
   position: absolute;
   left: auto;

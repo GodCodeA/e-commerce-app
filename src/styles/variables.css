@@ -1,0 +1,12 @@
+:root {
+  /* header ==> buttons && links color and hover */
+  --header-text-link-color: rgb(255, 255, 255, 0.8);
+  --header-text-link-color-hover: rgb(255, 255, 255);
+
+  /*header ==> cart ==> cart-count svg color && count color */
+  --header-cart-count-background-color: rgb(53, 165, 224, 0.8);
+  --header-cart-count-background-color-hover: rgb(53, 165, 224);
+
+  /* global buttons transition */
+  --global-button-background-color-transition: background-color 0.2s ease;
+}

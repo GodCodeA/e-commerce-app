@@ -10,7 +10,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <img src={product.thumbnail} alt={product.title} className="card__img"></img>
           <div className="card__text-wrapper">
             <h3>{product.title}</h3>
-            <p>{product.price}$</p>
+            <p className="card__price">{product.price}$</p>
           </div>
         </Link>
       </div>

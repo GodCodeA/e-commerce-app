@@ -33,7 +33,7 @@ function App() {
         <div className="container">
           <div className="header-wrapper">
             <nav className="nav">
-              <Link to="/">Home</Link>
+              <Link to="/" className="home-link">Home</Link>
               <Link to="/cart" className="cart-link">
                 <ShoppingCart />
                 {totalItems > 0 && (

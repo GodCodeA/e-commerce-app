@@ -80,7 +80,7 @@ export default function SearchForm({ onSearch }: Props) {
           </button>
         </div>
 
-        <button type="submit" className="search__btn" aria-label="Search">
+        <button type="submit" className="search__btn btn btn--search" aria-label="Search">
           Search
         </button>
       </form>
