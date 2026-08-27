@@ -66,15 +66,15 @@ body.dark {
 }
 
 .app.dark .card {
-  background: rgba(30, 41, 50, 0.92);
+  background: rgba(30, 41, 50, 0.8);
 }
 
 .app.dark .home {
-  background: rgba(30, 41, 50, 0.92);
+  background: rgba(30, 41, 50, 0.8);
 }
 
 .app.dark .home__empty {
-  background: rgba(30, 41, 50, 0.92);
+  background: rgba(30, 41, 50, 0.8);
 }
 
 p {
