@@ -34,9 +34,16 @@
   line-height: 1.8;
 }
 
+.home__loader-wrapper {
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* cards list */
 .home__product-horizontal-border {
-  height: 1px;
   border-top: 1px solid rgb(51, 65, 85);
 }
 
@@ -47,7 +54,9 @@
   overflow: hidden;
   list-style: none;
   margin: 0;
+  margin-block: -1px;
   padding: 0;
+  clip-path: inset(1px);
 }
 
 .home__product-list li {

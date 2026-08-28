@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProductsById } from "../../api/products";
 import { useCart } from "../../hooks/useCart";
+import Loader from "../../components/Loader/loader";
 import type { ProductProps } from "../../types/Types";
 import "./index.css";
 
@@ -39,13 +40,21 @@ const Product = () => {
     fetchProduct();
   }, [id]);
 
-  if (loading) return <p className="product__status">Loading...</p>;
+  if (loading)
+    return (
+      <div className="product__loading-wrapper">
+        <Loader />
+      </div>
+    );
 
   if (error)
     return (
       <div className="product__status-block">
         <p className="product__status">Product not found.</p>
-        <button className="product__action-btn btn" onClick={() => navigate("/")}>
+        <button
+          className="product__action-btn btn"
+          onClick={() => navigate("/")}
+        >
           Home
         </button>
       </div>
