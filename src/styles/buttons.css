@@ -5,7 +5,7 @@
   background-color: rgb(37, 99, 235, 0.9);
   color: #fff;
   cursor: pointer;
-  transition: var(--global-button-background-color-transition);
+  transition: var(--global-button-background-transition-color);
 }
 
 .btn--search {

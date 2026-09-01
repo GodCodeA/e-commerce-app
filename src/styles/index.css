@@ -6,12 +6,8 @@
 
 body {
   font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-  background: #f5f3ef;
   min-height: 100vh;
   margin: 0;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
 }
 
 body.light {
@@ -55,8 +51,8 @@ body.dark {
 .app {
   margin: 0 auto;
   transition:
-    background 0.3s ease,
-    color 0.3s ease;
+    background 3s ease,
+    color 3s ease;
 }
 
 .container {
@@ -65,16 +61,13 @@ body.dark {
   padding: 0 24px;
 }
 
-.app.dark .card {
-  background: rgba(30, 41, 50, 0.8);
-}
-
 .app.dark .home {
-  background: rgba(30, 41, 50, 0.8);
+  background: var(--body-background-dark-theme);
+  color: var(--global-text-light-color);
 }
 
 .app.dark .home__empty {
-  background: rgba(30, 41, 50, 0.8);
+  background: var(--body-background-dark-theme);
 }
 
 p {

@@ -1,15 +1,27 @@
 :root {
-  /* header/buttons && links/color && hover */
-  --header-text-link-color: rgb(255, 255, 255, 0.8);
-  --header-text-link-color-hover: rgb(255, 255, 255);
+  /* global text colors */
+  --global-text-light-color: rgb(255, 255, 255, 0.8);
+  --global-text-dark-color: rgb(0, 0, 0, 0.8);
+  /* links hover */
+  --global-text-light-color-hover: rgb(255, 255, 255);
+  --global-text-dark-color-hover: rgb(0, 0, 0);
 
-  /* header/cart/cart-count/svg && count colors */
   --header-cart-count-background-color: rgb(53, 165, 224, 0.8);
   --header-cart-count-background-color-hover: rgb(53, 165, 224);
 
-  /* global buttons transition */
-  --global-button-background-color-transition: background-color 0.2s ease;
+  /* body background in light (default) && dark theme */
+  --body-background-linear-light-theme: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #e2e8f0 100%
+  );
+  --body-background-dark-theme: rgba(30, 41, 50, 0.8);
 
-  /* main/home/cards hover text-underline, texts, box-shadow color*/
+  /* transitions */
+  --global-button-background-transition-color: background-color 0.2s ease;
+  --global-background-transition-color: background 0.2s ease;
+  --global-text-color-transition-color: color 0.2s ease;
+
+  /* main/home/card s text-underline, texts, box-shadow hover && color*/
   --cards-global-color-hover: rgba(61, 129, 185, 0.92);
 }

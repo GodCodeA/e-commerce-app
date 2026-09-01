@@ -1,4 +1,5 @@
 import { useCart } from "../../hooks/useCart";
+import { Link } from "react-router-dom";
 import "./index.css";
 
 const Cart = () => {
@@ -6,7 +7,16 @@ const Cart = () => {
     useCart();
 
   if (cart.length === 0)
-    return <p className="cart__empty">Your cart is currently empty.</p>;
+    return (
+      <section className="cart">
+        <div className="cart__empty">
+          <p>Your cart is currently empty.</p>
+          <Link to="/" className="cart__empty-home-link btn">
+            Go Shopping
+          </Link>
+        </div>
+      </section>
+    );
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,

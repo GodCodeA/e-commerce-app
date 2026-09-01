@@ -4,9 +4,8 @@
   left: 0;
   z-index: 20;
   padding: 18px 0;
-  background: rgba(30, 41, 50, 0.8);
+  background: var(--body-background-dark-theme);
   backdrop-filter: blur(10px);
-  
   border-bottom: 1px solid rgb(51, 65, 85);
   width: 100%;
 }
@@ -39,18 +38,18 @@
 }
 
 .home-link {
-  color: var(--header-text-link-color);
+  color: var(--global-text-light-color);
 }
 
 .home-link:hover {
-  color: var(--header-text-link-color-hover);
+  color: var(--global-text-light-color-hover);
 }
 
 .cart-link {
   position: relative;
 
   svg {
-    color: var(--header-text-link-color);
+    color: var(--global-text-light-color);
   }
 }
 
@@ -65,15 +64,15 @@
   width: 16px;
   height: 16px;
   background-color: var(--header-cart-count-background-color);
-  color: var(--header-text-link-color);
+  color: var(--global-text-light-color);
   font-size: 10px;
 }
 
 .cart-link:hover svg {
-  color: var(--header-text-link-color-hover);
+  color: var(--global-text-light-color-hover);
 }
 
 .cart-link:hover .cart-count {
-  color: var(--header-text-link-color-hover);
+  color: var(--global-text-light-color-hover);
   background-color: var(--header-cart-count-background-color-hover);
 }

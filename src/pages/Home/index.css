@@ -1,8 +1,8 @@
 .home {
   max-width: 1440px;
   margin-inline: auto;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  color: gray;
+  background: var(--body-background-linear-light-theme);
+  color: var(--global-text-dark-color);
 }
 
 .home__hero {
@@ -36,7 +36,7 @@
 
 .home__loader-wrapper {
   width: 100%;
-  min-height: calc(100vh - 75px);
+  height: calc(100vh - 75px);
   display: flex;
   justify-content: center;
   align-items: center;
